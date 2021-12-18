@@ -27,7 +27,7 @@
             $sqlQuery = "SELECT Users_username as username, Users_firstName as firstName, Users_lastName as lastName, Users_type as role, Users_status as status FROM " . $this->db_table . "";
               }
                 else{
-                $sqlQuery = "SELECT Users_username as username, Users_firstName as firstName, Users_lastName as lastName, Users_type as role, Users_status as status FROM " . $this->db_table . "  Where Users_type = '2' And Users_status='1' ";
+                $sqlQuery = "SELECT Users_username as username, Users_firstName as firstName, Users_lastName as lastName, Users_type as role, Users_status as status FROM " . $this->db_table . "  Where (Users_type = '2' OR Users_type = '3' ) And Users_status='1' ";
             }
             $stmt = $this->conn->prepare($sqlQuery);
             $stmt->execute();
