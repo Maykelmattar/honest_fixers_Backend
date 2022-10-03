@@ -17,6 +17,7 @@
     $Database = new Database();
     $db = $Database->getConnection();
     $data = json_decode(file_get_contents("php://input"));
+	try{
     $usernameExist = new users($db);
 
     $usernameExist->username = $data->username;
@@ -30,7 +31,7 @@
     $stmt = $items->getwo();
     $itemCount = $stmt->rowCount();
 
-
+	
 
     if($itemCount > 0){
         
@@ -161,4 +162,6 @@
     echo json_encode(msg(0,500,'You are not allowed to see the wo'));
 
 }
-?>
+} catch(PDOException $e){
+            echo json_encode(msg(0,500,$e->getMessage()));
+        }

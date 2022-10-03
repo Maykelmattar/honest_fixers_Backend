@@ -13,7 +13,7 @@
     $Database = new Database();
     $db = $Database->getConnection();
 
-
+try{
 
 
     $item = new updates($db);
@@ -32,4 +32,7 @@
 
 }
 echo json_encode($returnData);
+} catch(PDOException $e){
+            echo json_encode( msg(0,500,$e->getMessage()));
+        }
 ?>

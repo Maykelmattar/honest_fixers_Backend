@@ -14,6 +14,7 @@
     $db = $Database->getConnection();
 
 
+	try{
 
 
     $item = new wo($db);
@@ -84,7 +85,6 @@
            $item->Cstmp=$data->Cstmp;
            $item->Ustmp=$data->Ustmp;
            $item->DoneStmp=$data->DoneStmp;
-
     if($item->createwo()){
         $returnData = msg(1,200,'Wo created successfully.');
 
@@ -92,6 +92,10 @@
         $returnData = msg(0,422,'Wo could not be created.');
 
 }
+}  
     }
+ catch(PDOException $e){
+            $returnData = msg(0,500,$e->getMessage());
+        }
 echo json_encode($returnData);
 ?>

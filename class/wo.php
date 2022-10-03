@@ -161,7 +161,7 @@
            ". $this->db_table ."
         SET	
 
-Wo_dispatcher = :dispatcher ,	
+Wo_dispatcher = :dispatcher ,
 Wo_number = CASE WHEN :number !='' then :number else CASE WHEN (select max(t1.Wo_number) from workorder as t1) then (select max(t2.Wo_number)+1 from workorder as t2) else 1 END END  ,
 Wo_type = :type ,
 Wo_status = :status ,

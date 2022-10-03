@@ -1,13 +1,13 @@
     <?php 
     class Database {
-        // private $host = "sarkoship10101.domaincommysql.com";
+         private $host = "premiumservices.domaincommysql.com";
+         private $Database_name = "honest_fixers";
+         private $username = "sarkoship10101";
+         private $password = "Byblos#2021";
+        // private $host = "localhost";
         // private $Database_name = "honest_fixers";
-        // private $username = "sarkoship10101";
-        // private $password = "Byblos#2021";
-        private $host = "localhost";
-        private $Database_name = "honest_fixers";
-        private $username = "root";
-        private $password = "";
+        // private $username = "root";
+        // private $password = "";
         public $conn;
 
         public function getConnection(){
